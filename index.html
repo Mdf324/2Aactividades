@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material de Estudio - Algoritmos y Programación</title>
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #f72585;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4cc9f0;
+            --warning: #ffbe0b;
+            --info: #7209b7;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f2f5;
+            color: var(--dark);
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .class-info {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .section {
+            padding: 30px;
+            border-bottom: 3px solid var(--light);
+        }
+        
+        .section-title {
+            color: var(--primary);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+        }
+        
+        .section-title i {
+            margin-right: 15px;
+            font-size: 2rem;
+        }
+        
+        .concept-card {
+            background: linear-gradient(135deg, #4cc9f0, #4361ee);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .example {
+            background-color: #fff9db;
+            border: 2px dashed var(--warning);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .activity {
+            background-color: #e8f4fd;
+            border-left: 5px solid var(--success);
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .homework {
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .tip {
+            background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid var(--warning);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        
+        .code-block {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        
+        .interactive {
+            background-color: white;
+            border: 3px solid var(--primary);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        
+        .checklist {
+            background: linear-gradient(135deg, #55efc4, #00b894);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .emoji {
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+        
+        .progress-bar {
+            background: #e9ecef;
+            border-radius: 10px;
+            height: 20px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress {
+            background: linear-gradient(135deg, var(--success), var(--primary));
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: var(--dark);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧠 Algoritmos y Programación</h1>
+            <p class="subtitle">Material de Estudio y Tareas para Casa</p>
+            <div class="class-info">
+                <p><strong>📚 Curso:</strong> 2°A - Colegio General Paz</p>
+                <p><strong>🎯 Objetivo:</strong> Aprender a pensar como programadores</p>
+            </div>
+        </header>
+
+        <!-- SECCIÓN DE BIENVENIDA -->
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-rocket"></i> ¡Hola, Programadores!</h2>
+            <p>Bienvenidos a esta aventura en el mundo de la programación. En este material encontrarás todo lo que necesitas para convertirte en un experto en algoritmos.</p>
+            
+            <div class="tip">
+                <h3>💡 ¿Cómo usar este material?</h3>
+                <p><strong>1.</strong> Lee cada sección en orden<br>
+                <strong>2.</strong> Haz los ejercicios de práctica<br>
+                <strong>3.</strong> Completa las tareas para casa<br>
+                <strong>4.</strong> ¡Divierte aprendiendo!</p>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress" style="width: 0%" id="globalProgress"></div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 1: QUÉ ES UN ALGORITMO -->
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-puzzle-piece"></i> 1. ¿Qué es un Algoritmo?</h2>
+            
+            <div class="concept-card">
+                <h3>🧩 Definición Simple</h3>
+                <p>Un algoritmo es como una <strong>receta de cocina</strong>: una serie de pasos en orden para lograr un resultado.</p>
+            </div>
+
+            <div class="example">
+                <h4>🍳 Ejemplo: Hacer un sándwich</h4>
+                <p>1. Agarrar dos rebanadas de pan<br>
+                2. Poner mayonesa en una rebanada<br>
+                3. Colocar jamón y queso<br>
+                4. Poner la otra rebanada encima<br>
+                5. ¡Listo! Sándwich preparado</p>
+            </div>
+
+            <div class="activity">
+                <h3>🖊️ Ejercicio de Práctica</h3>
+                <p><strong>Escribe el algoritmo para:</strong> "Cepillarse los dientes"</p>
+                <textarea placeholder="Escribe tus pasos aquí..." rows="4" style="width: 100%; padding: 10px; border: 2px solid #4361ee; border-radius: 8px; margin: 10px 0;"></textarea>
+                <button class="btn" onclick="checkExercise('brushTeeth')"><i class="fas fa-check"></i> Verificar mi respuesta</button>
+            </div>
+
+            <div class="homework">
+                <h3>🏠 Tarea para Casa #1</h3>
+                <p><strong>Instrucciones:</strong> Elige una actividad de tu vida diaria y escribe su algoritmo.</p>
+                <p><strong>Opciones:</strong> Preparar el desayuno, organizar la mochila, tender la cama</p>
+                <textarea placeholder="Escribe tu algoritmo aquí..." rows="5" style="width: 100%; padding: 10px; border: 2px solid white; border-radius: 8px; margin: 10px 0; background: rgba(255,255,255,0.2); color: white;"></textarea>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 2: ESTRUCTURAS DE CONTROL -->
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-sitemap"></i> 2. Los 4 Superpoderes de la Programación</h2>
+
+            <div class="concept-card">
+                <h3>🔢 1. Secuencias - El Orden Correcto</h3>
+                <p>Los pasos van uno detrás de otro, como en una fila.</p>
+                <div class="code-block">
+                    PASO_1()<br>
+                    PASO_2()<br>
+                    PASO_3()<br>
+                    PASO_4()
+                </div>
+            </div>
+
+            <div class="concept-card">
+                <h3>🤔 2. Decisiones - Elegir Caminos</h3>
+                <p>El programa elige qué hacer según las condiciones.</p>
+                <div class="code-block">
+                    SI (está_lloviendo) ENTONCES<br>
+                    &nbsp;&nbsp;usar_paraguas()<br>
+                    SI NO<br>
+                    &nbsp;&nbsp;usar_gorra()<br>
+                    FIN SI
+                </div>
+            </div>
+
+            <div class="concept-card">
+                <h3>🔄 3. Repeticiones - Hacerlo Varias Veces</h3>
+                <p>Para cuando hay que repetir algo muchas veces.</p>
+                <div class="code-block">
+                    REPETIR 5 VECES:<br>
+                    &nbsp;&nbsp;hacer_flexiones()<br>
+                    FIN REPETIR
+                </div>
+            </div>
+
+            <div class="concept-card">
+                <h3>🎯 4. Eventos - Reaccionar a lo que Pasa</h3>
+                <p>El programa responde cuando ocurre algo.</p>
+                <div class="code-block">
+                    CUANDO (botón_presionado) ENTONCES<br>
+                    &nbsp;&nbsp;reproducir_música()<br>
+                    FIN CUANDO
+                </div>
+            </div>
+
+            <div class="activity">
+                <h3>🎮 Ejercicio Interactivo</h3>
+                <p><strong>Analiza este algoritmo de TikTok:</strong></p>
+                <div class="code-block">
+                    MIENTRAS (usuario_viendo_app) HACER<br>
+                    &nbsp;&nbsp;SI (video_es_interesante) ENTONCES<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;mostrar_más_videos_similares()<br>
+                    &nbsp;&nbsp;SI NO<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;cambiar_a_otro_tema()<br>
+                    &nbsp;&nbsp;FIN SI<br>
+                    FIN MIENTRAS
+                </div>
+                <p><strong>Pregunta:</strong> ¿Qué estructuras identificas?</p>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <button class="btn" onclick="selectStructure('sequence')">Secuencia</button>
+                    <button class="btn" onclick="selectStructure('decision')">Decisión</button>
+                    <button class="btn" onclick="selectStructure('loop')">Repetición</button>
+                    <button class="btn" onclick="selectStructure('event')">Evento</button>
+                </div>
+            </div>
+
+            <div class="homework">
+                <h3>🏠 Tarea para Casa #2</h3>
+                <p><strong>Instrucciones:</strong> Crea un algoritmo para un videojuego simple que incluya:</p>
+                <ul>
+                    <li>✅ Al menos una secuencia</li>
+                    <li>✅ Una decisión (SI/ENTONCES)</li>
+                    <li>✅ Una repetición</li>
+                    <li>✅ Una variable (puntaje, vidas, etc.)</li>
+                </ul>
+                <textarea placeholder="Escribe tu algoritmo de videojuego aquí..." rows="6" style="width: 100%; padding: 10px; border: 2px solid white; border-radius: 8px; margin: 10px 0; background: rgba(255,255,255,0.2); color: white;"></textarea>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 3: VARIABLES Y DATOS -->
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-database"></i> 3. Variables - La Memoria del Programa</h2>
+
+            <div class="concept-card">
+                <h3>📦 ¿Qué son las variables?</h3>
+                <p>Son como <strong>cajas con etiquetas</strong> donde guardamos información.</p>
+            </div>
+
+            <div class="example">
+                <h4>🎯 Ejemplos de Variables</h4>
+                <p><strong>nombre</strong> = "María"<br>
+                <strong>edad</strong> = 13<br>
+                <strong>puntaje</strong> = 100<br>
+                <strong>nivel_completado</strong> = verdadero</p>
+            </div>
+
+            <div class="activity">
+                <h3>💻 Juego de Variables</h3>
+                <p><strong>Completa las variables para este juego:</strong></p>
+                <div class="code-block">
+                    // Variables del juego<br>
+                    jugador = "<input type='text' placeholder='tu nombre' style='background: transparent; border: none; border-bottom: 1px solid #e2e8f0; color: #e2e8f0; width: 120px;'>"<br>
+                    vidas = <input type='number' placeholder='3' style='background: transparent; border: none; border-bottom: 1px solid #e2e8f0; color: #e2e8f0; width: 60px;'><br>
+                    puntaje = <input type='number' placeholder='0' style='background: transparent; border: none; border-bottom: 1px solid #e2e8f0; color: #e2e8f0; width: 60px;'><br>
+                    juego_activo = <select style='background: transparent; border: none; color: #e2e8f0;'><option>verdadero</option><option>falso</option></select>
+                </div>
+                <button class="btn" onclick="checkVariables()"><i class="fas fa-play"></i> Iniciar Juego</button>
+            </div>
+
+            <div class="homework">
+                <h3>🏠 Tarea para Casa #3</h3>
+                <p><strong>Instrucciones:</strong> Diseña un sistema de puntuación para un juego que tengas en tu celular.</p>
+                <p><strong>Debe incluir:</strong></p>
+                <ul>
+                    <li>✅ 3 variables diferentes</li>
+                    <li>✅ Cómo cambian durante el juego</li>
+                    <li>✅ Cómo se usan para tomar decisiones</li>
+                </ul>
+                <textarea placeholder="Describe tu sistema de puntuación..." rows="5" style="width: 100%; padding: 10px; border: 2px solid white; border-radius: 8px; margin: 10px 0; background: rgba(255,255,255,0.2); color: white;"></textarea>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 4: PROYECTO FINAL -->
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-trophy"></i> 4. Proyecto Final - ¡Sé el Programador!</h2>
+
+            <div class="interactive">
+                <h3>🎉 Desafío Final</h3>
+                <p><strong>Crea un algoritmo completo para:</strong> "Un día perfecto de fin de semana"</p>
+                
+                <div class="checklist">
+                    <h4>✅ Lista de Verificación</h4>
+                    <p><input type="checkbox"> Incluye secuencias de actividades</p>
+                    <p><input type="checkbox"> Tiene decisiones (ej: si llueve, si hace sol)</p>
+                    <p><input type="checkbox"> Usa repeticiones (ej: jugar varias partidas)</p>
+                    <p><input type="checkbox"> Considera eventos (ej: cuando llega un mensaje)</p>
+                    <p><input type="checkbox"> Usa variables (ej: hora, energía, diversión)</p>
+                </div>
+
+                <textarea placeholder="Escribe tu algoritmo para un día perfecto..." rows="8" style="width: 100%; padding: 15px; border: 3px solid var(--primary); border-radius: 10px; margin: 20px 0; font-family: 'Courier New', monospace;"></textarea>
+                
+                <button class="btn" onclick="submitProject()"><i class="fas fa-paper-plane"></i> Enviar Proyecto</button>
+            </div>
+
+            <div class="tip">
+                <h3>🌟 Consejos para el Proyecto</h3>
+                <p>• Piensa en todas las actividades que te gusta hacer<br>
+                • Considera diferentes situaciones (clima, energía, planes)<br>
+                • ¡Sé creativo! Puede incluir videojuegos, deportes, series<br>
+                • Recuerda incluir descanso y comida</p>
+            </div>
+        </div>
+
+        <!-- SECCIÓN DE RECURSOS ADICIONALES -->
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Recursos Adicionales</h2>
+
+            <div class="concept-card">
+                <h3>📚 Para Aprender Más</h3>
+                <p><strong>Videos recomendados:</strong><br>
+                • "¿Qué es un algoritmo?" - YouTube<br>
+                • "Programación para principiantes" - TikTok<br>
+                • "Cómo piensan los programadores" - Instagram Reels</p>
+                
+                <p><strong>Apps para practicar:</strong><br>
+                • Lightbot (juego de programación)<br>
+                • Scratch (programación visual)<br>
+                • Code.org (cursos gratuitos)</p>
+            </div>
+
+            <div class="activity">
+                <h3>🔍 Reto Extra - Cazadores de Algoritmos</h3>
+                <p><strong>Instrucciones:</strong> Esta semana, identifica 3 algoritmos que uses en tu vida diaria y descríbelos.</p>
+                <p><strong>Ejemplos:</strong> El algoritmo de Instagram para las stories, el de Netflix para recomendaciones, el de tu juego favorito.</p>
+                <textarea placeholder="Escribe los 3 algoritmos que descubriste..." rows="4" style="width: 100%; padding: 10px; border: 2px solid #4361ee; border-radius: 8px; margin: 10px 0;"></textarea>
+                <button class="btn" onclick="submitChallenge()"><i class="fas fa-search"></i> Enviar Mis Descubrimientos</button>
+            </div>
+        </div>
+
+        <footer>
+            <h3>🎓 ¡Felicitaciones por Completar el Material!</h3>
+            <p>Has dado tus primeros pasos en el mundo de la programación. ¡Sigue practicando!</p>
+            <p><strong>Profesor:</strong> Marcos Fernández</p>
+        </footer>
+    </div>
+
+    <script>
+        // Simulación de progreso
+        let progress = 0;
+        const sections = document.querySelectorAll('.section');
+        
+        function updateProgress() {
+            progress += 25;
+            document.getElementById('globalProgress').style.width = progress + '%';
+        }
+
+        // Función para verificar ejercicios
+        function checkExercise(type) {
+            alert('¡Bien hecho! Tu algoritmo está correcto. ✅\n\nRecuerda: Lo importante es que los pasos estén en orden y sean claros.');
+            updateProgress();
+        }
+
+        function selectStructure(structure) {
+            const messages = {
+                sequence: '¡Correcto! Hay una secuencia de pasos. ✅',
+                decision: '¡Exacto! Hay decisiones con SI/ENTONCES. ✅', 
+                loop: '¡Bien! El MIENTRAS es una repetición. ✅',
+                event: 'Casi, pero en este caso no hay eventos específicos. 🔄'
+            };
+            alert(messages[structure]);
+            updateProgress();
+        }
+
+        function checkVariables() {
+            alert('🎮 ¡Juego configurado correctamente!\nTus variables están listas para usar.');
+            updateProgress();
+        }
+
+        function submitProject() {
+            alert('🚀 ¡Proyecto enviado con éxito!\nEl profesor revisará tu algoritmo para un día perfecto.');
+            updateProgress();
+        }
+
+        function submitChallenge() {
+            alert('🔍 ¡Excelente trabajo de investigación!\nHas demostrado que puedes identificar algoritmos en la vida real.');
+            updateProgress();
+        }
+
+        // Efectos interactivos al hacer scroll
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            document.querySelector('header').style.transform = `translateY(${rate}px)`;
+        });
+
+        // Inicializar progreso
+        document.addEventListener('DOMContentLoaded', function() {
+            updateProgress(); // Iniciar con 25%
+        });
+    </script>
+</body>
+</html>
